@@ -22,3 +22,6 @@ These are my soultions for puzzles of [Advent of Code 2022](https://adventofcode
 
 ![Advent of Code 2022, Day 5, Commodore 64 Solution by Norbert Kehrer](/05/aoc05.jpg "Advent of Code 2022, Day 5, Commodore 64 Solution by Norbert Kehrer")
 
+## December 6, 2022: Commodore 64
+
+![Advent of Code 2022, Day 6, Commodore 64 Solution by Norbert Kehrer](/06/aoc06.jpg "Advent of Code 2022, Day 6, Commodore 64 Solution by Norbert Kehrer")
