@@ -1,0 +1,215 @@
+100 rem *** advent  of  code  ***
+110 rem *** december 10, 2022  ***
+130 rem
+140 rem adventofcode.com/2022/day/10
+150 rem
+160 rem by norbert kehrer
+170 rem norbertkehrer.github.io
+180 rem
+
+200 print
+210 print "advent of code on december 10, 2022"
+220 print "==================================="
+230 print
+240 ti$="000000":rem reset timer
+
+500 dim s$(6, 40): rem screen
+510 t = 0: rem total
+520 x = 1: rem x register
+530 cy = 1: rem cycles
+540 sr = 0: rem current screen row
+550 sc = 0: rem current screen column
+560 nx = x: rem new value of x register
+
+1000 rem read and execute the program
+1010 wa = 0: rem wait
+1020 read x$
+1030 if x$="end" then 1200
+1040 gosub 10000: rem do statistics for part 1
+1050 px$ = "."
+1060 if sc >= (x - 1) and sc <= (x + 1) then px$ = "#"
+1070 s$(sr + 1, sc + 1) = px$
+1080 sc = sc + 1
+1090 if sc > 39 then sc = 0: sr = sr + 1
+1100 if wa = 1 then wa = 0: x = nx: cy = cy + 1: goto 1040
+1110 op$ = left$(x$, 4)
+1120 v = val(mid$(x$, 6, 100))
+1130 if op$ = "noop" then 1150
+1140 if op$ = "addx" then nx = x + v: wa = 1
+1150 cy = cy + 1
+1160 goto 1020
+
+1200 rem print results
+1210 print "part 1: answer ";t
+1220 print "part 2:"
+1230 for r = 1 to 6
+1240   for c = 1 to 40
+1250     print s$(r, c);
+1260   next
+1270 next
+
+5000 rem
+5200 print
+5210 print "time needed (hours:minutes): ";left$(ti$,2);":";mid$(ti$,3,2)
+5220 print
+5230 print "norbert kehrer"
+5240 print "github.com/norbertkehrer/aoc-2022"
+5300 goto 5300
+
+10000 rem subroutine: do statistics for part 1
+10010 cc = 20: if cy = cc then t = t + x * cc
+10020 cc = 60: if cy = cc then t = t + x * cc
+10030 cc = 100: if cy = cc then t = t + x * cc
+10040 cc = 140: if cy = cc then t = t + x * cc
+10050 cc = 180: if cy = cc then t = t + x * cc
+10060 cc = 220: if cy = cc then t = t + x * cc
+10070 return
+
+
+60000 rem insert your data set here
+60010 data "noop"
+60011 data "addx 33"
+60012 data "addx -30"
+60013 data "noop"
+60014 data "noop"
+60015 data "addx 7"
+60016 data "addx 1"
+60017 data "noop"
+60018 data "noop"
+60019 data "addx 3"
+60020 data "addx 3"
+60021 data "addx 3"
+60022 data "addx -4"
+60023 data "addx 5"
+60024 data "addx 2"
+60025 data "noop"
+60026 data "addx 7"
+60027 data "noop"
+60028 data "addx 1"
+60029 data "addx 4"
+60030 data "noop"
+60031 data "addx 1"
+60032 data "addx -38"
+60033 data "noop"
+60034 data "addx 16"
+60035 data "addx -13"
+60036 data "addx 2"
+60037 data "addx 7"
+60038 data "noop"
+60039 data "addx -2"
+60040 data "addx -10"
+60041 data "addx 17"
+60042 data "addx -5"
+60043 data "addx 10"
+60044 data "noop"
+60045 data "addx -15"
+60046 data "addx 16"
+60047 data "addx 2"
+60048 data "noop"
+60049 data "noop"
+60050 data "addx 7"
+60051 data "addx 3"
+60052 data "addx -2"
+60053 data "addx 2"
+60054 data "addx 5"
+60055 data "addx -38"
+60056 data "addx 7"
+60057 data "addx -6"
+60058 data "addx 2"
+60059 data "noop"
+60060 data "addx 7"
+60061 data "noop"
+60062 data "addx 1"
+60063 data "addx 4"
+60064 data "noop"
+60065 data "noop"
+60066 data "noop"
+60067 data "noop"
+60068 data "noop"
+60069 data "addx 3"
+60070 data "noop"
+60071 data "addx 3"
+60072 data "addx 2"
+60073 data "noop"
+60074 data "addx 7"
+60075 data "noop"
+60076 data "addx -20"
+60077 data "addx 21"
+60078 data "addx 3"
+60079 data "addx 1"
+60080 data "addx -35"
+60081 data "addx 1"
+60082 data "addx 4"
+60083 data "noop"
+60084 data "addx 31"
+60085 data "noop"
+60086 data "addx -26"
+60087 data "addx 5"
+60088 data "noop"
+60089 data "noop"
+60090 data "addx -2"
+60091 data "addx 25"
+60092 data "addx -18"
+60093 data "addx -13"
+60094 data "addx 14"
+60095 data "addx 2"
+60096 data "noop"
+60097 data "noop"
+60098 data "noop"
+60099 data "addx 6"
+60100 data "addx 1"
+60101 data "addx 5"
+60102 data "addx 3"
+60103 data "addx -2"
+60104 data "addx -38"
+60105 data "addx 24"
+60106 data "addx -17"
+60107 data "addx 5"
+60108 data "noop"
+60109 data "noop"
+60110 data "addx -2"
+60111 data "addx 31"
+60112 data "addx -24"
+60113 data "addx 7"
+60114 data "addx -10"
+60115 data "addx 6"
+60116 data "noop"
+60117 data "addx 3"
+60118 data "addx 2"
+60119 data "noop"
+60120 data "noop"
+60121 data "addx 7"
+60122 data "addx -2"
+60123 data "addx -26"
+60124 data "addx 31"
+60125 data "addx 5"
+60126 data "addx -40"
+60127 data "addx 5"
+60128 data "addx 33"
+60129 data "addx -31"
+60130 data "noop"
+60131 data "addx 1"
+60132 data "addx 4"
+60133 data "addx 1"
+60134 data "addx 4"
+60135 data "addx 20"
+60136 data "noop"
+60137 data "noop"
+60138 data "addx -14"
+60139 data "addx -1"
+60140 data "addx 5"
+60141 data "noop"
+60142 data "noop"
+60143 data "addx 1"
+60144 data "addx 2"
+60145 data "noop"
+60146 data "noop"
+60147 data "addx 7"
+60148 data "noop"
+60149 data "noop"
+60150 data "noop"
+60151 data "noop"
+60152 data "noop"
+60153 data "noop"
+63000 data "end"
+
